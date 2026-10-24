@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Compiling application source code and building dependencies...'
+                sh 'echo "Build Stage Successful!"'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running automated unit and integration tests...'
+                sh 'echo "Test Stage Successful!"'
+            }
+        }
+        stage('Security Scan') {
+            steps {
+                echo 'Scanning dependencies and code for security vulnerabilities...'
+                sh 'echo "Security Scan Passed!"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application to staging environment...'
+                sh 'echo "Deploy Stage Successful!"'
+            }
+        }
+    }
+}
