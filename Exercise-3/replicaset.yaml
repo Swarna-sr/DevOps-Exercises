@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: flask-app-replicaset
+  labels:
+    app: flask-app
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: flask-container
+        image: flask-k8s-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
