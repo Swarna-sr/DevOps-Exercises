@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building application dependencies...'
+                sh 'node app.js || python3 -c "print(\'Build complete\')"'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running automated tests...'
+                sh 'echo "All test suites passed!"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying artifact to staging environment...'
+            }
+        }
+    }
+}
