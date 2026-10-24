@@ -1,0 +1,7 @@
+#include <tunables/global>
+
+profile custom-profile flags=(attach_disconnected,mediate_deleted) {
+#include <abstractions/base>
+deny /tmp/ w,
+deny /usr/bin/apt* x,
+}
